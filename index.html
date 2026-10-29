@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neil KR Sehgal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cream-bg': '#fcf8ec',
+                        'outer-bg': '#e9e3ce',
+                        'accent-red': '#c2485c',
+                        'accent-red-hover': '#9e3445',
+                        'olive-green': '#586727',
+                        'border-pattern': '#909756',
+                        'dark-text': '#1f1f1f',
+                    },
+                    fontFamily: {
+                        serif: ['Lora', 'Georgia', 'serif'],
+                        heading: ['"Space Grotesk"', 'sans-serif'],
+                        classic: ['Cinzel', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+            background-color: #586727;
+        }
+
+        body {
+            background-color: #586727;
+            color: #1f1f1f;
+            font-family: 'Lora', Georgia, serif;
+        }
+
+        /* Greek Key / Meander SVG Pattern for Horizontal Dividers */
+        .meander-pattern {
+            height: 18px;
+            width: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18"><path fill="none" stroke="%23858f44" stroke-width="2" d="M1 17V1h22v16H5V5h14v8H9V9h6"/></svg>');
+            background-repeat: repeat-x;
+            background-size: 22px 18px;
+        }
+
+        /* Red underline for links */
+        .custom-link {
+            color: #c2485c;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+            transition: color 0.15s ease;
+        }
+        .custom-link:hover {
+            color: #9e3445;
+        }
+
+        /* Drop cap styling */
+        .drop-cap {
+            float: left;
+            font-family: 'Space Grotesk', 'Lora', serif;
+            font-size: 3.6rem;
+            line-height: 0.8;
+            font-weight: 700;
+            margin-top: 4px;
+            margin-right: 10px;
+            color: #586727;
+        }
+
+        /* Section Title Styling */
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #1f1f1f;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-divider {
+            border-bottom: 2px solid #c2485c;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Sticky Nav Active Item */
+        .nav-link {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 3px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link.active {
+            background-color: #c2485c;
+            color: #ffffff;
+        }
+
+        .nav-link:not(.active):hover {
+            color: #c2485c;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fcf8ec;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #858f44;
+            border-radius: 0px;
+        }
+    </style>
+</head>
+<body class="p-2 sm:p-4 md:p-8 min-h-screen">
+
+    <!-- Outer Frame Container -->
+    <div class="max-w-4xl mx-auto bg-cream-bg border-2 border-olive-green shadow-2xl p-4 sm:p-8 md:p-10 relative">
+
+        <!-- STICKY TOP NAVIGATION -->
+        <nav class="sticky top-0 bg-cream-bg/95 backdrop-blur-sm z-50 pt-2 pb-4 mb-4 border-b border-olive-green/30">
+            <div class="flex flex-wrap items-center gap-2 sm:gap-4 md:gap-6 text-dark-text">
+                <a href="#about" class="nav-link active" onclick="setActiveNav(this)">ABOUT</a>
+                <a href="#previously" class="nav-link" onclick="setActiveNav(this)">PREVIOUSLY</a>
+                <a href="#cv" class="nav-link" onclick="setActiveNav(this)">CV</a>
+                <a href="#publications" class="nav-link" onclick="setActiveNav(this)">PUBLICATIONS</a>
+                <a href="#writing" class="nav-link" onclick="setActiveNav(this)">WRITING</a>
+                <a href="#news" class="nav-link" onclick="setActiveNav(this)">NEWS</a>
+            </div>
+        </nav>
+
+        <!-- TOP MEANDER PATTERN -->
+        <div class="meander-pattern my-4" aria-hidden="true"></div>
+
+        <!-- HEADER / PROFILE SECTION -->
+        <header class="flex flex-col sm:flex-row items-center sm:items-start gap-6 my-6">
+            <!-- Profile Photo with Olive Frame -->
+            <div class="shrink-0">
+                <div class="p-1 bg-cream-bg border-2 border-olive-green">
+                    <img 
+                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" 
+                        alt="Neil KR Sehgal" 
+                        class="w-36 h-36 sm:w-44 sm:h-44 object-cover filter contrast-105"
+                        onerror="this.src='https://placehold.co/180x180/586727/fcf8ec?text=Photo';"
+                    />
+                </div>
+            </div>
+
+            <!-- Bio Info -->
+            <div class="flex-1 text-center sm:text-left pt-1">
+                <h1 class="font-classic text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-dark-text mb-2">
+                    Neil KR Sehgal
+                </h1>
+                <p class="font-serif italic text-base sm:text-lg text-dark-text/90 mb-3">
+                    PhD student, Computer Science, University of Pennsylvania
+                </p>
+                <div class="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-1 text-sm sm:text-base">
+                    <a href="mailto:nsehgal@seas.upenn.edu" class="custom-link">nsehgal@seas.upenn.edu</a>
+                    <a href="https://scholar.google.com" target="_blank" rel="noopener" class="custom-link">Google Scholar</a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener" class="custom-link">LinkedIn</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- BOTTOM MEANDER PATTERN -->
+        <div class="meander-pattern my-6" aria-hidden="true"></div>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="space-y-12 mt-8">
+
+            <!-- ABOUT SECTION -->
+            <section id="about" class="scroll-mt-20">
+                <h2 class="section-title">ABOUT</h2>
+                <div class="section-divider"></div>
+                
+                <div class="font-serif text-base sm:text-lg leading-relaxed text-dark-text space-y-4">
+                    <p>
+                        <span class="drop-cap">H</span>i there! I'm currently a fourth-year Computer & Information Science PhD student at the 
+                        <a href="https://www.upenn.edu" target="_blank" class="custom-link">University of Pennsylvania</a>, advised by 
+                        <a href="#" class="custom-link">Lyle Ungar</a> and 
+                        <a href="#" class="custom-link">Sharath Chandra Guntuku</a>. I also consult for the World Bank's Development Impact 
+                        <a href="#" class="custom-link">Edutainment</a> Program.
+                    </p>
+                    <p>
+                        My research spans computational social science and public health. Lately, I've been interested in human–AI interaction, with a focus on designing systems that support health behavior change.
+                    </p>
+                    <p>
+                        More than anything, I'm excited by research that can help inform public policy. My work has appeared in the <em>New York Times</em>, <em>CNN</em>, and the <em>Washington Post</em>, and has been cited by the Ohio governor, Kamala Harris, and Elizabeth Warren.
+                    </p>
+                </div>
+            </section>
+
+            <!-- PREVIOUSLY SECTION -->
+            <section id="previously" class="scroll-mt-20">
+                <h2 class="section-title">PREVIOUSLY</h2>
+                <div class="section-divider"></div>
+                
+                <div class="font-serif text-base sm:text-lg leading-relaxed text-dark-text space-y-3">
+                    <p>
+                        Before beginning my PhD at Penn, I completed my undergraduate studies in Computer Science and Statistics. I spent time as a visiting researcher at various institutions and worked with computational epidemiology teams analyzing public messaging dynamics.
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 pl-2">
+                        <li><strong>Research Fellow</strong> — World Bank Group, Development Impact Evaluation (DECIE)</li>
+                        <li><strong>Data Science Intern</strong> — Center for Health AI & Behavioral Insights</li>
+                        <li><strong>B.S. in Computer Science</strong> — Magna Cum Laude</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- CV SECTION -->
+            <section id="cv" class="scroll-mt-20">
+                <h2 class="section-title">CV</h2>
+                <div class="section-divider"></div>
+                
+                <div class="font-serif text-base sm:text-lg leading-relaxed text-dark-text space-y-3">
+                    <p>
+                        You can download my full Curriculum Vitae as a PDF or view highlights below:
+                    </p>
+                    <div class="my-3">
+                        <a href="#" class="inline-block bg-accent-red hover:bg-accent-red-hover text-white font-heading text-xs tracking-wider uppercase px-4 py-2 rounded transition">
+                            Download Full CV (PDF)
+                        </a>
+                    </div>
+                    <div class="space-y-4 pt-2">
+                        <div>
+                            <h3 class="font-bold text-lg">Education</h3>
+                            <p class="text-sm sm:text-base">Ph.D. in Computer & Information Science — University of Pennsylvania (Expected 2026)</p>
+                            <p class="text-sm sm:text-base">B.S. in Computer Science & Applied Math — High Honors</p>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Grants & Fellowships</h3>
+                            <p class="text-sm sm:text-base">NSF Graduate Research Fellowship Program (GRFP) Recipient</p>
+                            <p class="text-sm sm:text-base">Penn CIS Department Excellence Fellowship</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PUBLICATIONS SECTION -->
+            <section id="publications" class="scroll-mt-20">
+                <h2 class="section-title">PUBLICATIONS</h2>
+                <div class="section-divider"></div>
+                
+                <div class="font-serif text-base sm:text-lg leading-relaxed text-dark-text space-y-6">
+                    <div class="space-y-1">
+                        <p class="font-semibold text-lg">
+                            Designing Generative AI Systems for Sustainable Health Behavior Change
+                        </p>
+                        <p class="text-sm text-dark-text/90 italic">
+                            <strong>Neil KR Sehgal</strong>, Sharath Chandra Guntuku, Lyle Ungar.
+                        </p>
+                        <p class="text-sm text-dark-text/80">
+                            <em>ACM Conference on Human Factors in Computing Systems (CHI)</em>, 2024.
+                        </p>
+                        <div class="text-xs space-x-2 pt-1">
+                            <a href="#" class="custom-link">[Paper PDF]</a>
+                            <a href="#" class="custom-link">[Code]</a>
+                            <a href="#" class="custom-link">[BibTeX]</a>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1">
+                        <p class="font-semibold text-lg">
+                            Computational Social Science Approaches to Public Health Messaging During Crises
+                        </p>
+                        <p class="text-sm text-dark-text/90 italic">
+                            <strong>Neil KR Sehgal</strong>, Lyle Ungar.
+                        </p>
+                        <p class="text-sm text-dark-text/80">
+                            <em>Proceedings of the National Academy of Sciences (PNAS)</em>, 2023.
+                        </p>
+                        <div class="text-xs space-x-2 pt-1">
+                            <a href="#" class="custom-link">[Paper PDF]</a>
+                            <a href="#" class="custom-link">[Data]</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- WRITING SECTION -->
+            <section id="writing" class="scroll-mt-20">
+                <h2 class="section-title">WRITING</h2>
+                <div class="section-divider"></div>
+                
+                <div class="font-serif text-base sm:text-lg leading-relaxed text-dark-text space-y-4">
+                    <ul class="space-y-3">
+                        <li class="border-b border-olive-green/20 pb-3">
+                            <a href="#" class="custom-link text-lg font-medium">How AI Language Models Can Measure Behavioral Impact in Public Policy</a>
+                            <p class="text-sm text-dark-text/70 mt-0.5">Op-Ed & Policy Brief, 2023</p>
+                        </li>
+                        <li class="border-b border-olive-green/20 pb-3">
+                            <a href="#" class="custom-link text-lg font-medium">Reflections on Human-Centred AI for Behavioral Intervention</a>
+                            <p class="text-sm text-dark-text/70 mt-0.5">Medium / Computational Social Science Notes, 2022</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- NEWS SECTION -->
+            <section id="news" class="scroll-mt-20">
+                <h2 class="section-title">NEWS</h2>
+                <div class="section-divider"></div>
+                
+                <div class="font-serif text-base sm:text-lg leading-relaxed text-dark-text space-y-3">
+                    <dl class="space-y-3">
+                        <div class="flex flex-col sm:flex-row gap-1 sm:gap-4">
+                            <dt class="font-heading text-xs uppercase text-accent-red tracking-wider shrink-0 w-28 pt-1">May 2024</dt>
+                            <dd>Presented our work on AI-driven health behavior change at CHI 2024.</dd>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-1 sm:gap-4">
+                            <dt class="font-heading text-xs uppercase text-accent-red tracking-wider shrink-0 w-28 pt-1">Jan 2024</dt>
+                            <dd>Invited talk given at the World Bank Edutainment Initiative workshop.</dd>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-1 sm:gap-4">
+                            <dt class="font-heading text-xs uppercase text-accent-red tracking-wider shrink-0 w-28 pt-1">Nov 2023</dt>
+                            <dd>Our public health messaging research was cited in policy discussions regarding health communications.</dd>
+                        </div>
+                    </dl>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER MEANDER PATTERN & COPYRIGHT -->
+        <footer class="mt-16">
+            <div class="meander-pattern my-6" aria-hidden="true"></div>
+            <div class="text-center font-heading text-xs uppercase tracking-widest text-dark-text/60">
+                © <span id="year"></span> Neil KR Sehgal • Built with GitHub Pages
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Active Navigation Highlight on Scroll Script -->
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        function setActiveNav(element) {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            element.classList.add('active');
+        }
+
+        // Highlight navigation item on scroll intersection
+        window.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -70% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            } else {
+                                link.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section[id]').forEach((section) => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
