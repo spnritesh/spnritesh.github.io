@@ -34,102 +34,103 @@
     }
 </script>
 
-    <style>
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-            background-color: #586727;
-        }
+<style>
+    /* Smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+        background-color: #02383c; /* Deep Dark Peacock Teal */
+    }
 
-        body {
-            background-color: #586727;
-            color: #1f1f1f;
-            font-family: 'Lora', Georgia, serif;
-        }
+    body {
+        background-color: #02383c;
+        color: #0b2023;
+        font-family: 'Lora', Georgia, serif;
+    }
 
-        /* Greek Key / Meander SVG Pattern for Horizontal Dividers */
-        .meander-pattern {
-            height: 18px;
-            width: 100%;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18"><path fill="none" stroke="%23858f44" stroke-width="2" d="M1 17V1h22v16H5V5h14v8H9V9h6"/></svg>');
-            background-repeat: repeat-x;
-            background-size: 22px 18px;
-        }
+    /* Greek Key / Meander SVG Pattern in Peacock Teal-Green (%2313757d) */
+    .meander-pattern {
+        height: 18px;
+        width: 100%;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18"><path fill="none" stroke="%2313757d" stroke-width="2" d="M1 17V1h22v16H5V5h14v8H9V9h6"/></svg>');
+        background-repeat: repeat-x;
+        background-size: 22px 18px;
+    }
 
-        /* Red underline for links */
-        .custom-link {
-            color: #c2485c;
-            text-decoration: underline;
-            text-underline-offset: 3px;
-            font-weight: 500;
-            transition: color 0.15s ease;
-        }
-        .custom-link:hover {
-            color: #9e3445;
-        }
+    /* Peacock Teal / Turquoise links */
+    .custom-link {
+        color: #0e7490;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        font-weight: 500;
+        transition: color 0.15s ease;
+    }
+    .custom-link:hover {
+        color: #155e75;
+    }
 
-        /* Drop cap styling */
-        .drop-cap {
-            float: left;
-            font-family: 'Space Grotesk', 'Lora', serif;
-            font-size: 3.6rem;
-            line-height: 0.8;
-            font-weight: 700;
-            margin-top: 4px;
-            margin-right: 10px;
-            color: #586727;
-        }
+    /* Drop cap styling in Peacock Teal */
+    .drop-cap {
+        float: left;
+        font-family: 'Space Grotesk', 'Lora', serif;
+        font-size: 3.6rem;
+        line-height: 0.8;
+        font-weight: 700;
+        margin-top: 4px;
+        margin-right: 10px;
+        color: #0e5a60;
+    }
 
-        /* Section Title Styling */
-        .section-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.15rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: #1f1f1f;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
+    /* Section Title Styling */
+    .section-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: #0b2023;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
 
-        .section-divider {
-            border-bottom: 2px solid #c2485c;
-            margin-bottom: 1.25rem;
-        }
+    /* Section Divider in Peacock Gold */
+    .section-divider {
+        border-bottom: 2px solid #d4af37;
+        margin-bottom: 1.25rem;
+    }
 
-        /* Sticky Nav Active Item */
-        .nav-link {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            padding: 3px 10px;
-            border-radius: 3px;
-            transition: all 0.2s ease;
-        }
+    /* Sticky Nav Active Item */
+    .nav-link {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        padding: 3px 10px;
+        border-radius: 3px;
+        transition: all 0.2s ease;
+    }
 
-        .nav-link.active {
-            background-color: #c2485c;
-            color: #ffffff;
-        }
+    .nav-link.active {
+        background-color: #0e5a60;
+        color: #ffffff;
+    }
 
-        .nav-link:not(.active):hover {
-            color: #c2485c;
-        }
+    .nav-link:not(.active):hover {
+        color: #d4af37;
+    }
 
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #fcf8ec;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #858f44;
-            border-radius: 0px;
-        }
-    </style>
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #f0f7f7;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #0e5a60;
+        border-radius: 0px;
+    }
+</style>
 </head>
 <body class="p-2 sm:p-4 md:p-8 min-h-screen">
 
